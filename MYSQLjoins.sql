@@ -52,7 +52,7 @@ Where Rating = 1 AND name like '%Visio%';
 
 This query should return the employeeID, the employee's first and last name, the name of each product, how many of that product they sold */
 
-SELECT employees.EmployeeID, FirstName, LastName, Name, Date,(SUM)Quantity
+SELECT employees.EmployeeID, FirstName, LastName, Name,Date, SUM(Quantity)
 FROM employees
 INNER JOIN sales ON employees.EmployeeID = sales.EmployeeID
 INNER JOIN products ON products.ProductID = sales.ProductID
@@ -63,5 +63,5 @@ SELECT employees.EmployeeID, FirstName, LastName, Name, Date, Quantity
 FROM employees
 INNER JOIN sales ON employees.EmployeeID = sales.EmployeeID
 INNER JOIN products ON products.ProductID = sales.ProductID
-WHERE Date LIKE '%2016%'
 ORDER BY employees.EmployeeID DESC, products.ProductID, Date;
+
